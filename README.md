@@ -1,4 +1,15 @@
-# ComfyUI VNCCS Utils
+# ComfyUI VNCCS Utils (Paperspace Stable Version 0.4.10)
+
+⚙️ This fork is optimized and stabilized for Paperspace environments.
+
+## 日本語説明
+このリポジトリは Paperspace 環境で安定動作するように調整されたフォーク版です。
+
+- 安定バージョン: **0.4.10**
+- 対象: Paperspace / クラウド環境
+- 内容: 依存関係の調整・互換性修正・安定化
+
+---
 
 A collection of utility nodes from the [VNCCS](https://github.com/AHEKOT/ComfyUI_VNCCS) project that are useful not only for the project's primary goals but also for everyday ComfyUI workflows.
 
