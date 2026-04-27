@@ -5455,7 +5455,7 @@ class PoseStudioWidget {
 
     async refreshLibrary(forceFull = false) {
         try {
-            const res = await fetch('/vnccs/pose_library/list' + (forceFull ? '?full=true' : ''));
+            const res = await fetch('vnccs/pose_library/list' + (forceFull ? '?full=true' : ''));
             const data = await res.json();
             this.libraryPoses = data.poses || []; // Cache for random selection
 
@@ -5478,7 +5478,7 @@ class PoseStudioWidget {
                 const preview = document.createElement('div');
                 preview.className = 'vnccs-ps-library-item-preview';
                 if (pose.has_preview) {
-                    preview.innerHTML = `<img src="/vnccs/pose_library/preview/${encodeURIComponent(pose.name)}" alt="${pose.name}">`;
+                    preview.innerHTML = `<img src="vnccs/pose_library/preview/${encodeURIComponent(pose.name)}" alt="${pose.name}">`;
                 } else {
                     preview.innerHTML = '🦴';
                 }
@@ -5574,7 +5574,7 @@ class PoseStudioWidget {
         }
 
         try {
-            await fetch('/vnccs/pose_library/save', {
+            await fetch('vnccs/pose_library/save', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, pose, preview })
@@ -5587,7 +5587,7 @@ class PoseStudioWidget {
 
     async loadFromLibrary(name) {
         try {
-            const res = await fetch(`/vnccs/pose_library/get/${encodeURIComponent(name)}`);
+            const res = await fetch(`vnccs/pose_library/get/${encodeURIComponent(name)}`);
             const data = await res.json();
 
             if (data.pose && this.viewer) {
@@ -5915,7 +5915,7 @@ class PoseStudioWidget {
 
     async deleteFromLibrary(name) {
         try {
-            await fetch(`/vnccs/pose_library/delete/${encodeURIComponent(name)}`, { method: 'DELETE' });
+            await fetch(`vnccs/pose_library/delete/${encodeURIComponent(name)}`, { method: 'DELETE' });
             this.refreshLibrary(false);
         } catch (err) {
             console.error("Failed to delete pose:", err);
